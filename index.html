@@ -33,6 +33,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            overflow-x: hidden; /* Evita scroll horizontal por si las flores sobresalen un poco de la pantalla pequeña */
         }
 
         /* Animación de entrada suave */
@@ -57,7 +58,9 @@
             align-items: center;
             text-align: center;
             animation: fadeIn 1s ease-out;
-            overflow: hidden; 
+            overflow: hidden; /* Mantiene el adorno dorado dentro */
+            /* Añadimos un poco de padding inferior para que las flores de abajo no tapen el botón */
+            padding-bottom: 60px;
         }
 
         /* Adorno superior dorado con CSS */
@@ -74,10 +77,52 @@
             z-index: 3;
         }
 
+        /* --- CLASES PARA LAS FLORES (PNGs) --- */
+        .flor {
+            position: absolute;
+            z-index: 1; /* Detrás del texto pero delante del fondo */
+            pointer-events: none; /* Para que no interfieran al dar clic */
+            opacity: 0.85; /* Un poco transparentes para que se integren mejor */
+            transform-origin: center center;
+        }
+
+        /* Arreglo Arriba Izquierda (Picture3 - Ramo grande) */
+        .flor-top-left {
+            top: -30px;
+            left: -40px;
+            width: 250px;
+            transform: rotate(-15deg);
+        }
+
+        /* Arreglo Abajo Derecha (Picture3 - Ramo grande) */
+        .flor-bottom-right {
+            bottom: -20px;
+            right: -50px;
+            width: 280px;
+            transform: rotate(160deg);
+        }
+
+        /* Arreglo Centro Izquierda (Picture2 - Ramo pequeño) */
+        .flor-mid-left {
+            top: 40%;
+            left: -20px;
+            width: 150px;
+            transform: translateY(-50%) rotate(70deg);
+        }
+
+        /* Arreglo Centro Derecha (Picture2 - Ramo pequeño) */
+        .flor-mid-right {
+            top: 30%;
+            right: -30px;
+            width: 140px;
+            transform: translateY(-50%) rotate(-45deg);
+        }
+        /* --- FIN CLASES FLORES --- */
+
         .header {
             margin-top: 20px;
             margin-bottom: 30px;
-            z-index: 2;
+            z-index: 4; /* Elevamos el z-index para que esté sobre las flores */
         }
 
         .welcome-text {
@@ -97,7 +142,7 @@
             padding: 8px;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
             margin-bottom: 20px;
-            z-index: 2;
+            z-index: 4;
         }
 
         .photo-frame {
@@ -124,7 +169,7 @@
             margin: 0;
             line-height: 1;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-            z-index: 2;
+            z-index: 4;
         }
 
         .age-container {
@@ -134,7 +179,7 @@
             gap: 10px;
             margin-top: -5px;
             margin-bottom: 25px;
-            z-index: 2;
+            z-index: 4;
         }
 
         .age-number {
@@ -156,11 +201,11 @@
             height: 2px;
             background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
             margin: 0 auto 35px;
-            z-index: 2;
+            z-index: 4;
         }
 
         .event-details {
-            z-index: 2;
+            z-index: 4;
             margin-bottom: 35px;
             display: flex;
             flex-direction: column;
@@ -206,6 +251,7 @@
             font-size: 1.1em;
             color: var(--text-dark);
             line-height: 1.5;
+            padding: 0 20px; /* Para que el texto no toque los bordes si la pantalla es muy chica */
         }
 
         .alberca-text {
@@ -214,7 +260,7 @@
             color: var(--gold-dark);
             font-weight: 700;
             margin: 0 0 5px;
-            z-index: 2;
+            z-index: 4;
         }
 
         .te-esperamos {
@@ -224,7 +270,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 30px;
-            z-index: 2;
+            z-index: 4;
         }
 
         .footer-tag {
@@ -236,7 +282,7 @@
             font-size: 0.95em;
             letter-spacing: 1px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 4;
+            z-index: 5; /* Z-index alto para asegurar que quede por encima de las flores de abajo */
             display: flex;
             align-items: center;
             gap: 8px;
@@ -246,6 +292,11 @@
 <body>
     <div class="invitation-card">
         
+        <img src="./Picture3.png" alt="" class="flor flor-top-left">
+        <img src="./Picture3.png" alt="" class="flor flor-bottom-right">
+        <img src="./Picture2.png" alt="" class="flor flor-mid-left">
+        <img src="./Picture2.png" alt="" class="flor flor-mid-right">
+
         <header class="header">
             <p class="welcome-text">Acompáñanos a celebrar<br>el cumpleaños de</p>
         </header>
