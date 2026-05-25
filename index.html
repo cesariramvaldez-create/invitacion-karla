@@ -56,7 +56,8 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            animation: fadeIn 1s ease-out; /* Se aplica la animación aquí */
+            animation: fadeIn 1s ease-out;
+            overflow: hidden; /* Evita que las flores decorativas se salgan del borde */
         }
 
         /* Adorno superior dorado con CSS */
@@ -70,6 +71,33 @@
             border: 1px solid rgba(212, 175, 55, 0.5);
             border-radius: 10px;
             pointer-events: none;
+            z-index: 3;
+        }
+
+        /* DECORACIÓN FLORAL SOLO CON CSS Y TEXTO */
+        .floral-deco {
+            position: absolute;
+            font-size: 10rem;
+            line-height: 1;
+            z-index: 1;
+            pointer-events: none;
+            /* Efecto de degradado dorado/rosa para la flor */
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #ff94a8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.15; /* Sutil efecto de marca de agua */
+        }
+
+        .floral-top-left {
+            top: -40px;
+            left: -30px;
+            transform: rotate(-15deg);
+        }
+
+        .floral-bottom-right {
+            bottom: -50px;
+            right: -30px;
+            transform: rotate(165deg);
         }
 
         .header {
@@ -131,7 +159,7 @@
             align-items: center;
             gap: 10px;
             margin-top: -5px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             z-index: 2;
         }
 
@@ -153,18 +181,18 @@
             width: 60%;
             height: 2px;
             background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
-            margin: 0 auto 30px;
+            margin: 0 auto 25px;
+            z-index: 2;
         }
 
         .event-details {
             z-index: 2;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Botón de ubicación mejorado e interactivo */
         .ubicacion-btn {
             background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
             color: var(--white);
@@ -175,7 +203,7 @@
             margin-bottom: 20px;
             font-size: 1.1em;
             letter-spacing: 1px;
-            text-decoration: none; /* Quita el subrayado del link */
+            text-decoration: none;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -186,7 +214,7 @@
         }
 
         .date {
-            font-size: 1.3em;
+            font-size: 1.25em;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 5px;
@@ -206,21 +234,47 @@
             line-height: 1.5;
         }
 
+        /* SECCIÓN LLUVIA DE SOBRES */
+        .sobre-section {
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 2px dashed rgba(212, 175, 55, 0.6);
+            border-radius: 15px;
+            padding: 15px 25px;
+            margin-bottom: 20px;
+            z-index: 2;
+            width: 85%;
+        }
+
+        .sobre-icon {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .sobre-text {
+            font-size: 0.95em;
+            color: var(--text-dark);
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
         .alberca-text {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.5em;
+            font-size: 2.2em;
             color: var(--gold-dark);
             font-weight: 700;
-            margin: 10px 0 5px;
+            margin: 0 0 5px;
+            z-index: 2;
         }
 
         .te-esperamos {
-            font-size: 1em;
+            font-size: 0.95em;
             color: var(--text-dark);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            z-index: 2;
         }
 
         .footer-tag {
@@ -232,13 +286,16 @@
             font-size: 0.95em;
             letter-spacing: 1px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 2;
+            z-index: 4;
         }
     </style>
 </head>
 <body>
     <div class="invitation-card">
         
+        <div class="floral-deco floral-top-left">❀</div>
+        <div class="floral-deco floral-bottom-right">❀</div>
+
         <header class="header">
             <p class="welcome-text">Acompáñanos a celebrar<br>el cumpleaños de</p>
         </header>
@@ -267,6 +324,11 @@
             <p class="time">9:00 PM</p>
             <br>
             <p class="address">Calle Fernando Ortiz Rubio No. 283.<br>Col. Leandro Valle</p>
+        </div>
+
+        <div class="sobre-section">
+            <span class="sobre-icon">✉️</span>
+            <p class="sobre-text">Sugerencia de regalo:<br>Lluvia de Sobres</p>
         </div>
 
         <p class="alberca-text">¡Habrá alberca!</p>
