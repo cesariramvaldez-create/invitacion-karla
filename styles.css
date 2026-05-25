@@ -1,0 +1,238 @@
+:root {
+    --gold-primary: #D4AF37;
+    --gold-light: #F3E5AB;
+    --gold-dark: #AA7C11;
+    --pink-bg: #FFF0F5;
+    --pink-card: #FFFAFA;
+    --text-dark: #333333;
+    --maroon: #800000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--pink-bg);
+    background-image: radial-gradient(circle at center, #ffffff 0%, var(--pink-bg) 100%);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+.invitation-card {
+    background-color: var(--pink-card);
+    width: 100%;
+    max-width: 450px;
+    min-height: 850px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Efectos de esquinas doradas sutiles */
+.invitation-card::before, .invitation-card::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-image: radial-gradient(circle, var(--gold-light) 10%, transparent 60%);
+    opacity: 0.3;
+    z-index: 0;
+}
+.invitation-card::before { top: -50px; left: -50px; }
+.invitation-card::after { bottom: -50px; right: -50px; }
+
+.header {
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.1), transparent);
+    padding: 25px 20px;
+    text-align: center;
+    border-top: 5px solid var(--gold-primary);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    z-index: 1;
+}
+
+.header p {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+}
+
+.portrait-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    z-index: 1;
+}
+
+.gold-ring {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
+    padding: 6px;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.portrait-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+}
+
+.portrait-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-details {
+    text-align: center;
+    padding: 20px 30px;
+    z-index: 1;
+    flex-grow: 1;
+}
+
+.name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    line-height: 1;
+    background: linear-gradient(to bottom, var(--gold-primary), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+    margin-top: -10px;
+}
+
+.age-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px;
+}
+
+.age-badge .number {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: var(--gold-primary);
+    font-weight: 700;
+}
+
+.age-badge .text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: var(--gold-primary);
+    margin-left: 8px;
+    margin-top: 15px;
+}
+
+.divider {
+    margin: 20px 0;
+    position: relative;
+    text-align: center;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.divider span {
+    color: var(--gold-primary);
+    font-size: 1.2rem;
+}
+
+.event-info p {
+    margin: 8px 0;
+}
+
+.date {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.time {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.pool-party {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: var(--gold-dark);
+    margin: 15px 0 !important;
+}
+
+.location-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 15px 0;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.location-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+}
+
+.address {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.gift-info {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+}
+
+.footer {
+    background-color: var(--maroon);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+}

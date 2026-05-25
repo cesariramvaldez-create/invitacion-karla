@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación María 60 Años</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700&family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta de colores ajustada */
+            --pink-base: #FFB6C1;
+            --pink-light: #FFF0F5;
+            --gold-primary: #D4AF37;
+            --gold-dark: #AA7C11;
+            --text-dark: #4A3626;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Animación de entrada suave */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tarjeta principal con fondo rosa CSS puro */
+        .invitation-card {
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-base) 100%);
+            width: 100%;
+            max-width: 480px;
+            min-height: 750px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border: 3px solid rgba(212, 175, 55, 0.4);
+            position: relative;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 1s ease-out; /* Se aplica la animación aquí */
+        }
+
+        /* Adorno superior dorado con CSS */
+        .invitation-card::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .header {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            z-index: 2;
+        }
+
+        .welcome-text {
+            font-size: 0.95em;
+            color: var(--text-dark);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Contenedor de la foto de María */
+        .portrait-circle {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            padding: 8px;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--white);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5.5em;
+            color: var(--gold-dark);
+            margin: 0;
+            line-height: 1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            z-index: 2;
+        }
+
+        .age-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: -5px;
+            margin-bottom: 30px;
+            z-index: 2;
+        }
+
+        .age-number {
+            font-size: 3em;
+            color: var(--gold-primary);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .age-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
+            color: var(--gold-dark);
+        }
+
+        /* Línea separadora dorada */
+        .divider {
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+            margin: 0 auto 30px;
+        }
+
+        .event-details {
+            z-index: 2;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Botón de ubicación mejorado e interactivo */
+        .ubicacion-btn {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 25px;
+            padding: 10px 30px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            text-decoration: none; /* Quita el subrayado del link */
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ubicacion-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .date {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .time {
+            font-size: 1.2em;
+            font-weight: 400;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .address {
+            font-family: 'Baskervville', serif;
+            font-size: 1.1em;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .alberca-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: var(--gold-dark);
+            font-weight: 700;
+            margin: 10px 0 5px;
+        }
+
+        .te-esperamos {
+            font-size: 1em;
+            color: var(--text-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .footer-tag {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-card">
+        
+        <header class="header">
+            <p class="welcome-text">Acompáñanos a celebrar<br>el cumpleaños de</p>
+        </header>
+
+        <div class="portrait-circle">
+            <div class="photo-frame">
+                <img src="./Picture1.png" alt="Foto de María">
+            </div>
+        </div>
+
+        <h1 class="name">María</h1>
+        
+        <div class="age-container">
+            <span class="age-number">60</span>
+            <span class="age-text">años</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="event-details">
+            <a href="https://maps.app.goo.gl/YssX7AmddimqLCyc9?g_st=iw" target="_blank" rel="noopener noreferrer" class="ubicacion-btn">
+                Ver Ubicación en Mapa
+            </a>
+            
+            <p class="date">Sábado 13 de Junio de 2026</p>
+            <p class="time">9:00 PM</p>
+            <br>
+            <p class="address">Calle Fernando Ortiz Rubio No. 283.<br>Col. Leandro Valle</p>
+        </div>
+
+        <p class="alberca-text">¡Habrá alberca!</p>
+        <p class="te-esperamos">Te esperamos</p>
+
+        <div class="footer-tag">
+            ¡No olvides traer tu bebida!
+        </div>
+
+    </div>
+</body>
+</html>
